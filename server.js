@@ -14,6 +14,9 @@ app.get("/", function (req,res) {
     res.render("index.ejs")
 })
 
+app.get("/new", function (req,res) {
+    res.render("new.ejs")
+})
 
 
 
