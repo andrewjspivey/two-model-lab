@@ -6,7 +6,13 @@ const app = express();
 //configuration
 const PORT = 4000;
 
+//Routes
 
+// home route
+
+app.get("/", function (req,res) {
+    res.render("index.ejs")
+})
 
 
 
