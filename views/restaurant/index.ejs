@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Restaurants</h1>
+    <ul>
+        <li><a href="/restaurants">Restaurants</a></li>
+        <li><a href="/restaurants/new">Tell us about a new restaurant and list it</a></li>
+    </ul>
+    <main>
+        <h2>List of Restaurants</h2>
+        <ul>
+          <% restaurant.forEach(restaurant => { %>
+          <li>
+            <a href="/restaurants/<%= restaurant._id %>"> <%= restaurant.name %> </a>
+          </li>
+          <% }) %>
+        </ul>
+  
+        <% if(restaurant.length === 0) { %>
+        <p>There are no restaurants available yet.</p>
+        <% } %>
+      </main>
+
+
+</body>
+</html>

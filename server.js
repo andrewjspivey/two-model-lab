@@ -1,22 +1,34 @@
 
 // External Modules
 const express = require("express");
+const methodOverride = require('method-override');
 // Instanced Modules
 const app = express();
 //configuration
 const PORT = 4000;
+// Internal Modules
+const db = require("./models");
+const restaurantsController = require("./controllers/restaurant.js")
+
+app.set("view engine", "ejs");
+
+
+// Middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.originalUrl}`);
+    next();
+});
 
 //Routes
 
 // home route
 
-app.get("/", function (req,res) {
-    res.render("index.ejs")
-})
 
-app.get("/new", function (req,res) {
-    res.render("new.ejs")
-})
+
+app.use("/restaurants", restaurantsController)
+
 
 
 
