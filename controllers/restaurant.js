@@ -42,6 +42,17 @@ router.post('/', (req, res)=>{
     });
 });
 
+// show
+router.get("/:id", function (req, res) {
+    db.Restaurant.findById(req.params.id, function (err, foundRestaurant) {
+      if (err) {
+        console.log(err);
+        return res.send(err);
+      }
+      const context = { restaurant: foundRestaurant };
+      res.render("restaurant/show", context);
+    });
+  });
 
 
 module.exports = router;

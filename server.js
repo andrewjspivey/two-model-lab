@@ -10,6 +10,8 @@ const PORT = 4000;
 const db = require("./models");
 const restaurantsController = require("./controllers/restaurant.js")
 
+
+
 app.set("view engine", "ejs");
 
 
@@ -28,6 +30,8 @@ app.use((req, res, next) => {
 
 
 app.use("/restaurants", restaurantsController)
+
+
 
 
 
