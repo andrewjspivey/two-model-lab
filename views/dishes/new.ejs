@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Article</title>
+  </head>
+  <body>
+    <nav>
+      <h1>Welcome Dishes</h1>
+      <ul>
+        <li>
+          <a href="/restaurants">Restaurants</a>
+        </li>
+        <li>
+          <a href="/dishes">dishes</a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <form action="/dishes" method="POST">
+        <p>
+          <input type="text" name="name" placeholder="Dish" />
+        </p>
+        <p>
+          <textarea type="text" name="description" placeholder="description"></textarea>
+        </p>
+        <!-- create a dropdown of all available authors -->
+        <p>
+          <select name="restaurant">
+            <option default>Select a Restaurant</option>
+            <% restaurants.forEach(restaurant => { %>
+            <option value="<%= restaurant._id %>"><%= restaurant.name %></option>
+            <% }) %>
+          </select>
+        </p>
+
+        <input type="submit" value="Create Dish" />
+      </form>
+    </main>
+  </body>
+</html>

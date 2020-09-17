@@ -6,14 +6,12 @@
 	</head>
 	<body>
 		<header>
-			<h1>Show Page for <%=restaurant.name%></h1>
+			<h1><%=restaurant.name%></h1>
 			<nav>
+                <a href="/restaurants/<%= restaurant._id %>/edit">Edit</a>
 				<ul>
 					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/restaurant">Restaurant Index</a>
+						<a href="/restaurants">Home</a>
 					</li>
 				</ul>
 			</nav>
@@ -24,7 +22,20 @@
                     <li>Name: <%=restaurant.name%></li>
                     <li>Location: <%=restaurant.location%></li>
 				</ul>
-			</section>
+            </section>
+            <form action="/restaurants/<%= restaurant._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete" />
+              </form>
+            <section>
+                <h2>Dishes</h2>
+                <ul>
+                  <% restaurant.dishes.forEach(dish => { %>
+                  <li>
+                    <a href="/dishes/<%= dish._id %>"><%= dish.name %></a>
+                  </li>
+                  <% }) %>
+                </ul>
+              </section>
 		</main>
 	</body>
 </html>

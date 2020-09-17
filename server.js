@@ -9,7 +9,7 @@ const PORT = 4000;
 // Internal Modules
 const db = require("./models");
 const restaurantsController = require("./controllers/restaurant.js")
-
+const dishesController = require("./controllers/dishes.js")
 
 
 app.set("view engine", "ejs");
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 
 app.use("/restaurants", restaurantsController)
 
-
+app.use("/dishes", dishesController)
 
 
 

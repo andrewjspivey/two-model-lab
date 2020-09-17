@@ -6,6 +6,12 @@ const restaurantSchema = new mongoose.Schema(
     name: { type: String, required: [true, "You must provide a name."] },
     location: { type: String, required: false },
     recommend: Boolean,
+    dishes: [
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref: "Dishes"
+        }
+    ],
   },
   {
     timestamps: true, // adds a createdAt and an updatedAt

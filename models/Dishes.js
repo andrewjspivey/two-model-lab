@@ -5,6 +5,8 @@ const dishesSchema = new mongoose.Schema(
   {
     name: { type: String, required: [true, "You must provide a name."] },
     review: { type: String, required: false },
+    description: { type: String, required: false },
+    restaurant: { type: mongoose.Schema.Types.ObjectId, ref: "Restaurant" },
     recommend: Boolean,
     img: { type: String, required: false }
   },

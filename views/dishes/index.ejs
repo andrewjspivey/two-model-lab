@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dishes</title>
+  </head>
+  <body>
+    <nav>
+      <h1>Dishes</h1>
+      <ul>
+        <li>
+          <a href="/restaurants">Home</a>
+        </li>
+        <li>
+          <a href="/dishes">Dishes</a>
+        </li>
+        <li>
+          <a href="/dishes/new">Add a dish</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <h2>List of Dishes</h2>
+      <ul>
+        <% dishes.forEach(dish => { %>
+        <li>
+          <a href="/dishes/<%= dish._id %>"><%= dish.name %></a>
+        </li>
+        <% }) %>
+      </ul>
+
+      <% if(dishes.length === 0) { %>
+      <p>There are no dishes available yet.</p>
+      <% } %>
+    </main>
+  </body>
+</html>
